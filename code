@@ -1,26 +1,28 @@
 
-package midterm.project;
 
 
-class Menus {
+class Menu implement Comparable <Menu>{
     private String name;
     private int price, totalDishes;
+    totalDishes=0;
+    
+    
+    
     
     public 
 }
 
 class Customer implements Comparable <Customer> {
-    
-}
-
-
-public class MidtermProject {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    Customer (String name){
+    this.name = name;
     }
+   
     
-}
+
+    
+public class FoodDelivery{
+
+    public static void main(String[] args) {
+           do{
+           try { Scanner scan_name = new.scanner 9system.in)
+            
