@@ -8,34 +8,46 @@
  *
  * @author eric
  */
-public class Menu implements Comparable<Menu> {
+ public class Menu implements Comparable<Menu> {
+    
     protected String name;
     protected int price;
-    protected int total_dish=0;
-    public String getName(){
+    protected int dish=0;
+    
+    
+    public String getMenu(){
         return name;
     }
     public int getPrice(){
         return price;
     }
-    public void set_total_dish(int td){
-        this.total_dish+=td;
+    
+    public int getdish(){
+        return dish;
+} 
+    
+    public void dish_amount(int totaldish){
+        this.dish+=totaldish;
     }
-    public int get_dish(){
-        return total_dish;
+
+    //get Menu name and price
+    Menu(String n, int p){
+        name=n;
+        price=p;
+    } 
+    
+    public int compareToIgnoreCase(Menu p){
+        int comparePrice = ((Menu) p).getPrice();
+        return comparePrice - this.price;
+    }
+   
+    //normalprint
+    public void report(){
+    System.out.printf("Dish name: %-30s  Dish price : %d\n",name,price);
 }
    
-    Menu(String n, int p){
-        this.name=n;
-        this.price=p;
-    } 
-    public void print(){
-    System.out.printf("Dish name : %-30s  Dish price : %d\n",name,price);
-}
     @Override
-    public int compareTo(Menu am){
-        int comparePrice = ((Menu)am).getPrice();
-        return comparePrice - this.price;
-       // return new Int(this.price).compareTo(new Int(am.price));
+    public int compareTo(Menu o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

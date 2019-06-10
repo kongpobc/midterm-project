@@ -1,79 +1,117 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author eric
- */
-public class Customer implements Comparable<Customer>{
-    Customer(String n){
-        this.name=n;
-//        this.array=array_in;
+
+class Customer implements Comparable <Customer> {
+    Customer (String name){
+    this.name = name;
+    }
+    
+    Menu ptrmenu;
+    
+    public String name;
+    public double point;
+    public int []customer = {0,0,0,0,0};
+    protected int totalbill=0;
+    protected double totalpoints=0;
+    
+    
+    public int menu1,menu2,menu3,menu4,menu5;
+    public int prince1,prince2,prince3,prince4,price5;
+    Menu []mn= new Menu[4];
+    
+    /*Scanner scan_name = new Scanner (System.in);
+    String file_name = scan_name.next();
+    for(int i=0;i<5;i++) 
+            {
+                String line = scan.nextLine();
+                String [] buf = line.split(",");
+                
+                
+                String menu1 = buf[0];
+                int price1  = Integer.parseInt(buf[1].trim());
+                
+                String menu2 = buf[2];
+                int price2  = Integer.parseInt(buf[3].trim());
+                
+                String menu3 = buf[4];
+                int price3  = Integer.parseInt(buf[5].trim());
+                
+                String menu4 = buf[6];
+                int price4  = Integer.parseInt(buf[7].trim());
+                
+                String menu5 = buf[8];
+                int price5  = Integer.parseInt(buf[9].trim());
+                
+                
+              
+}*/             
+              
+    protected void processOrder (int menu[], Menu mn[]){        
+    {
+         
+        customer[1]+=menu[0];
+        customer[2]+=menu2;
+        customer[3]+=menu3;
+        customer[4]+=menu4;
+        customer[5]+=menu5;
+        
+        mn[0].dish_amount(menu1);
+        mn[1].dish_amount(menu2);
+        mn[2].dish_amount(menu3);
+        mn[3].dish_amount(menu4);
+        
+      // int totalbill = mn[0]*price1 + mn[1]*price2 + mn[2]*price4 + mn[3]*price4 + mn[4]*price5; 
+    
+        mn[4].dish_amount(menu[4]+(totalbill/1000));
+        
+        totalpoints = totalbill/10;
+    
+    }
+       
+        
+        this.point = totalpoints;
+        System.out.printf("\n\norder bill = %6d", totalbill);
+        System.out.printf("\ncurrent points = %6f", point);
+        System.out.printf("\nfree dish %s = %6d", menu[4],totalbill/1000);
+        
+                
+        
+        double currentpt = totalpoints-500;
+        if (totalpoints >= 500)
+        {
+            System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)((totalbill*0.99)+40), currentpt);
+        }
+        else
+        {
+            System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)(totalbill+40), point);
+        }
+     
+    }
+    
+    public double compareToIgnoreCase(Customer p){
+        double comparePoints = ((Customer) p).getPoint();
+        return comparePoints - this.point;
     }
     
     
-    protected String name;
-    protected int point;
-    protected int [] array = {0,0,0,0,0};
-    protected void processOrder(int menu1, int price1,int menu2, int price2, int menu3, int price3,int menu4, int price4, int menu5, int price5,int cheap, Menu [] menu){
-        array[0]+=menu1;
-        array[1]+=menu2;
-        array[2]+=menu3;
-        array[3]+=menu4;
-        array[4]+=menu5;
-        menu[0].set_total_dish(menu1);
-        menu[1].set_total_dish(menu2);
-        menu[2].set_total_dish(menu3);
-        menu[3].set_total_dish(menu4);
-
-        int order_bill = array[0]*price1+array[1]*price2+array[2]*price3+array[3]*price4+array[4]*price5;
-        menu[4].set_total_dish(menu5+order_bill/1000);       
-        
-        
-        int points = (int)(order_bill*0.1+0.5);
-        
-        
-               this.point=(points);
-               
-               System.out.printf("order bill = %6d, current points = %5d, free %s = %2d\n",
-                       order_bill,points,menu[cheap].getName(),order_bill/1000);
-
-               /*               for(int z=0;z<menu.length;z++){
-                    menu[z].set_total_dish((char)(z+i*2));          
-    }*/
-               
-               
-               
-               int currentpt=point-500;
-               if(point>499){
-                   System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)(order_bill*0.95+40), currentpt);
-               }
-               else{
-                   System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)(order_bill+40), point);
-               }
+    public void SetPoint (double point)
+    {
+        this.point = point;
     }
-    
-    
-    public void setPoint(int p){
-        this.point=p;
-    }
-    
-    public int getPoint(){
+    public double getPoint()
+    {
         return point;
     }
-    
-    public String getName(){
+    public String getName()
+    {
         return name;
     }
-    
+
     @Override
-    public int compareTo(Customer am){
-        int comparepoint=((Customer)am).getPoint();
-        return comparepoint-this.point;
+    public int compareTo(Customer o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }
