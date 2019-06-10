@@ -1,0 +1,58 @@
+class Customer implements Comparable <Customer> {
+    Customer (String name){
+    this.name = name;
+    }
+    public String name;
+    public double point;
+    public int []customer = {0,0,0,0,0};
+    
+    public int compareTo(name other)  
+   {
+        if (this.name.compareToIgnoreCase(other.name) < 0) return -1;
+        else return 1;
+   }
+
+    public void processOrder ( int menu[4], int price[4], int free, menu [] = menu)
+    {
+        for (i=0; i<5; i++)
+        {
+            customer[i]+=menu[i];
+            menu(i).setdish;
+            int totalbill += menu[i]*price[i]; 
+            i++;
+           
+        }
+        menu[4].setdish(menu[4]+(totalbill/1000));
+        int totalpoints;
+        totalpoints = totalbill/10;
+        
+        this.point = (totalpoints);
+        System.out.printf("\n\norder bill = %6d, current points = %5d, free %s = %2d\n",
+                       totalbill,points,menu[free].getMenu(),totalbill/1000);
+        
+        int currentpt = totalpoints-500;
+        if (totalpoints >= 500)
+        {
+            System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)((totalbill*0.95)+40), currentpt);
+        }
+        else
+        {
+            System.out.printf("final bill = %6d current points = %5d \n\n\n", (int)(totalbill+40), point);
+        }
+     
+    }
+    public void SetPoint (double point)
+    {
+        this.point = (points);
+    }
+    public int getPoint()
+    {
+        return point;
+    }
+    public String getName()
+    {
+        return name;
+    }
+
+    
+}
